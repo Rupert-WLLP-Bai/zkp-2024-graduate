@@ -1,6 +1,13 @@
-FROM ubuntu:latest
+# 使用Ubuntu 22.04
+FROM ubuntu:22.04
 
-RUN sed -i 's|ports.ubuntu.com|mirrors.ustc.edu.cn/ubuntu-ports|g' /etc/apt/sources.list
+# 设置软件源
+ARG ARCH
+RUN if [ "$ARCH" = "arm" ]; then \
+        sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//http:\/\/mirrors.ustc.edu.cn\/ubuntu\//g' /etc/apt/sources.list; \
+    else \
+        sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//http:\/\/mirrors.ustc.edu.cn\/ubuntu\//g' /etc/apt/sources.list; \
+    fi
 
 RUN apt-get update && apt-get install -y \
     build-essential \

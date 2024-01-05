@@ -1,6 +1,5 @@
-
-
 #!/bin/bash
+
 set -e -x
 afl-clang++ -o hello_afl.out hello_afl.cc
 
