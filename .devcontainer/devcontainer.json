@@ -1,0 +1,20 @@
+{
+    "name": "C++ and AFL",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "yzhang.markdown-all-in-one",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "github.copilot"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+    ]
+}
