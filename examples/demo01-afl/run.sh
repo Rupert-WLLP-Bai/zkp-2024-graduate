@@ -1,11 +1,18 @@
 #!/bin/bash
 
 set -e -x
+
+# Get the directory of the script
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+# Change the current directory to the script's directory
+cd "$SCRIPT_DIR"
+
 afl-clang++ -o hello_afl.out hello_afl.cc
 
-# 运行之前检查是否存在crash文件夹，如果不存在则创建
+# Check if the "crash" folder exists before running
 if [ ! -d "crash" ]; then
-    echo "crash folder not exist, create it"
+    echo "crash folder does not exist, creating it"
     mkdir crash
 fi
 
