@@ -6,11 +6,28 @@
 2. [libsnark](https://github.com/scipr-lab/libsnark) libsnark是一个用于零知识证明的C++库，它提供了一组用于构建零知识证明系统的工具。它的主要功能是将零知识证明系统的构建过程抽象为一组算法，然后通过调用这些算法来构建零知识证明系统。
 3. [Non-interactive zero-knowledge proof](https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof) 零知识证明是一种证明系统，它可以证明某个语句是真的，但是不能透露任何关于这个语句的信息。零知识证明的一个重要应用是密码学中的零知识证明，它可以用来证明某个人知道某个密码，但是不能透露这个密码。
 4. [zkSNARK](https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649)
+5. [snarkjs](https://github.com/iden3/snarkjs) This is a JavaScript and Pure Web Assembly implementation of zkSNARK and PLONK schemes. It uses the Groth16 Protocol (3 point only and 3 pairings), PLONK and FFLONK. This library includes all the tools required to perform trusted setup multi-party ceremonies: including the universal powers of tau ceremony, and the second phase circuit specific ceremonies.
 
 ![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*YD-ckgBfmmmRBCyVlhp8YQ.png)
 
 ## Environment
 
-- Ubuntu 22.04
+- Ubuntu 22.04 / MacOS 14.2.1
 - LLVM 14
 - Clang 14
+
+## Installations
+
+1. snarkjs
+``` bash
+npm install -g snarkjs@latest
+```
+
+2. circom
+``` bash
+git clone https://github.com/iden3/circom.git
+cd circom
+cargo build --release
+cargo install --path circom
+```
+
