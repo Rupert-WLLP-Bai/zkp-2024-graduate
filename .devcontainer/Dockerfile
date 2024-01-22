@@ -30,6 +30,19 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Set up circom 2 and snarkjs
+# 1. rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# 2. circom
+RUN git clone https://github.com/iden3/circom.git
+RUN cd circom && cargo build --release && cargo install --path .
+# 3. snarkjs
+# 3.1 nodejs 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+# 3.2 snarkjs
+RUN npm install -g snarkjs
+
 # Set up Oh My Zsh
 RUN git clone https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git &&\
     cd ohmyzsh/tools &&\
